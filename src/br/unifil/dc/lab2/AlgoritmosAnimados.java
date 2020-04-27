@@ -203,22 +203,27 @@ public class AlgoritmosAnimados
         return anim;
     }
     public static int partition(List<Integer> valores, int start, int end){
-        
+        Gravador anim = new Gravador();
+
         int pivot = valores.get(end);
         int i = start - 1;
         for(int j = start; j <= end-1; j++){
             if(valores.get(j) <= pivot){
+                anim.gravarComparacaoSimples(valores, j, pivot);
                 i++;
                 int iValue = valores.get(i);
                 int jValue = valores.get(j);
                 valores.set(i, jValue);
                 valores.set(j, iValue);
+                anim.gravarPosTrocas(valores, i, j);
             }
         }
         
         int iValue = valores.get(i + 1);
         valores.set(end, iValue);
         valores.set(i + 1, pivot);
+        anim.gravarPosTrocas(valores, end, i + 1);
+        
         
         return i+1;
 
