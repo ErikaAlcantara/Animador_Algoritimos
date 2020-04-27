@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.ArrayList;
 import javax.swing.*;
 
-
 public class AnimadorAlgoritmos extends JFrame {
 
     /**
-     * O construtor do aplicativo AnimadorAlgoritmos. É aqui que todos os elementos da interface gráfica são
-     * construídos, configurados e posicionados. Por enquanto, aqui também é feito o tratamento de
-     * eventos (input de usuário através de mouse e teclado), utilizando métodos anônimos (lambda).
+     * O construtor do aplicativo AnimadorAlgoritmos. É aqui que todos os elementos
+     * da interface gráfica são construídos, configurados e posicionados. Por
+     * enquanto, aqui também é feito o tratamento de eventos (input de usuário
+     * através de mouse e teclado), utilizando métodos anônimos (lambda).
      *
      * @see javax.swing.JFrame
      */
@@ -31,12 +31,10 @@ public class AnimadorAlgoritmos extends JFrame {
         btnAnt.addActionListener((e) -> onBtnAntPressionado());
 
         // Cria e configura o campo de seleção de algoritmos animados
-        OpcaoAlgoritmo[] algsAnimados = {
-                OpcaoAlgoritmo.LISTA_ESTATICA,
-                OpcaoAlgoritmo.PESQUISADOR_BINARIO, OpcaoAlgoritmo.PESQUISADOR_SEQUENCIAL,
-                OpcaoAlgoritmo.CLASSIFICADOR_BOLHA, OpcaoAlgoritmo.CLASSIFICADOR_SELECAO,
-                OpcaoAlgoritmo.CLASSIFICADOR_INSERCAO, OpcaoAlgoritmo.CLASSIFICADOR_MERGESORT,
-                OpcaoAlgoritmo.CLASSIFICADOR_QUICKSORT};
+        OpcaoAlgoritmo[] algsAnimados = { OpcaoAlgoritmo.LISTA_ESTATICA, OpcaoAlgoritmo.PESQUISADOR_BINARIO,
+                OpcaoAlgoritmo.PESQUISADOR_SEQUENCIAL, OpcaoAlgoritmo.CLASSIFICADOR_BOLHA,
+                OpcaoAlgoritmo.CLASSIFICADOR_SELECAO, OpcaoAlgoritmo.CLASSIFICADOR_INSERCAO,
+                OpcaoAlgoritmo.CLASSIFICADOR_MERGESORT, OpcaoAlgoritmo.CLASSIFICADOR_QUICKSORT };
         boxListaAlgoritmos = new JComboBox<OpcaoAlgoritmo>(algsAnimados);
         boxListaAlgoritmos.addItemListener((ItemEvent e) -> onSlctOpcaoAlgoritmo((OpcaoAlgoritmo) e.getItem()));
 
@@ -101,12 +99,12 @@ public class AnimadorAlgoritmos extends JFrame {
             case CLASSIFICADOR_SELECAO:
                 novoFilme = AlgoritmosAnimados.classificarPorSelecao(valores);
                 break;
-                
+
             case PESQUISADOR_BINARIO:
-            chave = Integer.parseInt(txfEntradaChavePesquisa.getText());
+                chave = Integer.parseInt(txfEntradaChavePesquisa.getText());
                 novoFilme = AlgoritmosAnimados.pesquisaBinaria(valores, chave);
                 break;
-                
+
             case CLASSIFICADOR_INSERCAO:
                 novoFilme = AlgoritmosAnimados.classificarPorInsercao(valores);
                 break;
@@ -120,7 +118,7 @@ public class AnimadorAlgoritmos extends JFrame {
                 break;
 
             default:
-                throw new RuntimeException("Funcionalidade ainda não implementada pelo aluno");  
+                throw new RuntimeException("Funcionalidade ainda não implementada pelo aluno");
         }
 
         if (novoFilme != null) {
@@ -152,10 +150,10 @@ public class AnimadorAlgoritmos extends JFrame {
         }
     }
 
-
     /**
-     * Ponto de início do programa. Simplesmente informa que é um aplicativo gráfico e passa o
-     * controle para o construtor do método. Utiliza uma segunda thread para isso.
+     * Ponto de início do programa. Simplesmente informa que é um aplicativo gráfico
+     * e passa o controle para o construtor do método. Utiliza uma segunda thread
+     * para isso.
      *
      * @param args Argumentos recebidos da linha de comando.
      */
@@ -167,14 +165,10 @@ public class AnimadorAlgoritmos extends JFrame {
     private enum OpcaoAlgoritmo {
         LISTA_ESTATICA("Lista estática"),
 
-        PESQUISADOR_SEQUENCIAL("Pesquisa sequencial"),
-        PESQUISADOR_BINARIO("Pesquisa binária"),
+        PESQUISADOR_SEQUENCIAL("Pesquisa sequencial"), PESQUISADOR_BINARIO("Pesquisa binária"),
 
-        CLASSIFICADOR_BOLHA("Bolha"),
-        CLASSIFICADOR_SELECAO("Seleção"),
-        CLASSIFICADOR_INSERCAO("Inserção"),
-        CLASSIFICADOR_MERGESORT("Mergesort"),
-        CLASSIFICADOR_QUICKSORT("Quicksort");
+        CLASSIFICADOR_BOLHA("Bolha"), CLASSIFICADOR_SELECAO("Seleção"), CLASSIFICADOR_INSERCAO("Inserção"),
+        CLASSIFICADOR_MERGESORT("Mergesort"), CLASSIFICADOR_QUICKSORT("Quicksort");
 
         OpcaoAlgoritmo(String repr) {
             this.repr = repr;
@@ -189,8 +183,9 @@ public class AnimadorAlgoritmos extends JFrame {
     }
 
     /**
-     * Método auxiliar para a classe que converte para uma lista de Integers uma sequencia de
-     * valores em String, separados por ",". Valores não numéricos são considerados como 0.
+     * Método auxiliar para a classe que converte para uma lista de Integers uma
+     * sequencia de valores em String, separados por ",". Valores não numéricos são
+     * considerados como 0.
      *
      * @param textoValores String com valores separados por ",".
      * @return Lista de inteiros de acordo com a String de entrada.
