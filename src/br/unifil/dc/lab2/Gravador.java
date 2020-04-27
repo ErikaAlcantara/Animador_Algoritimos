@@ -106,6 +106,9 @@ public class Gravador
     public void gravarPosTrocas(List<Integer> lista, int i, int j) {
         List<Integer> copia = new ArrayList<Integer>(lista);
         List<Color> cores = novaListaColors(lista.size());
+        
+        if (lista.size() == i) --i;
+        
         cores.set(i, Color.YELLOW);
         cores.set(j, Color.YELLOW);
         ListaGravada gravacao = new ListaGravada(copia, cores, "Pós-troca");
