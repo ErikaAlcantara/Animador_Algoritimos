@@ -57,8 +57,6 @@ public class AlgoritmosAnimados
                 }
             }
         } while (trocou);
-    
-        // throw new RuntimeException("Funcionalidade ainda não implementada pelo aluno");
         
         anim.gravarLista(valores, "Disposição final");
         return anim;
