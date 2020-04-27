@@ -126,10 +126,13 @@ public class AlgoritmosAnimados
             int element = valores.get(i);
             int j = i - 1;
             while(j >= 0 && valores.get(j) > element){
+                anim.gravarComparacaoSimples(valores, i, j);
                 valores.set(j + 1, j);
+                anim.gravarPosTrocas(valores, i, j);
                 j--;
             }
             valores.set(j + 1, element);
+            anim.gravarPosTrocas(valores, element, j); //revise and test! @Misael
         }
     
         anim.gravarLista(valores, "Disposição final");
